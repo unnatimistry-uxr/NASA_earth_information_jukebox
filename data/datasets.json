@@ -22,7 +22,7 @@
       },
       "navigationMode": "oceans",
       "synthSettings": {
-        "oscillatorType": "sine",
+        "oscillatorType": "triangle",
         "envelope": {
           "attack": 0.05,
           "decay": 0.1,
@@ -31,10 +31,10 @@
         }
       },
       "audioConfig": {
-        "minFrequency": 150,
-        "maxFrequency": 800,
+        "minFrequency": 10,
+        "maxFrequency": 900,
         "colorChannel": "red",
-        "scanDurationMs": 1500
+        "scanDurationMs": 3000
       },
       "legendConfig": {
         "title": "Ocean Nutrient Stress Scale",
@@ -146,7 +146,7 @@
       },
       "navigationMode": "continents",
       "synthSettings": {
-        "oscillatorType": "sine",
+        "oscillatorType": "triangle",
         "envelope": {
           "attack": 0.05,
           "decay": 0.1,
@@ -155,10 +155,10 @@
         }
       },
       "audioConfig": {
-        "minFrequency": 180,
-        "maxFrequency": 850,
+        "minFrequency": 10,
+        "maxFrequency": 1200,
         "colorChannel": "red",
-        "scanDurationMs": 1500
+        "scanDurationMs": 3000
       },
       "legendConfig": {
         "title": "Carbon Monoxide (CO) Concentration Scale",
@@ -226,7 +226,7 @@
       },
       "navigationMode": "grid",
       "synthSettings": {
-        "oscillatorType": "sine",
+        "oscillatorType": "triangle",
         "envelope": {
           "attack": 0.05,
           "decay": 0.1,
@@ -235,10 +235,10 @@
         }
       },
       "audioConfig": {
-        "minFrequency": 200,
+        "minFrequency": 10,
         "maxFrequency": 900,
         "colorChannel": "red",
-        "scanDurationMs": 1500
+        "scanDurationMs": 3000
       },
       "legendConfig": {
         "title": "Active Fire Thermal Intensity Scale",

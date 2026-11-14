@@ -77,9 +77,18 @@ const AudioCore = (() => {
         }
 
         const minFreq = audioConfig.minFrequency || 150;
-        const maxFreq = audioConfig.maxFrequency || 800;
+        const maxFreq = audioConfig.maxFrequency || 850;
 
-        return minFreq + normalizedValue * (maxFreq - minFreq);
+        // --- THRESHOLD GATING FOR CLEAR DISTINCTION ---
+        // If the color intensity is below 40% (background clouds, terrain, normal land),
+        // keep it locked to the low baseline frequency so it sounds clean and structured.
+        if (normalizedValue < 0.4) {
+            return minFreq; 
+        }
+
+        // For values above 40% (entering fire/stress zones), scale sharply up to max frequency
+        const weightedValue = Math.pow((normalizedValue - 0.4) / 0.6, 1.5);
+        return minFreq + weightedValue * (maxFreq - minFreq);
     }
 
     /**
@@ -99,8 +108,19 @@ const AudioCore = (() => {
     }
 
     /**
-     * 5. Sequential Multi-Box Pixel-by-Pixel Audio Scanner
-     * Supports single regions (1 box) AND split regions like Pacific Ocean (2+ boxes)
+     * Sequential Multi-Box Pixel-by-Pixel Audio Scanner with Noise Filtering.
+     * 
+     * Sound Engineering Architecture:
+     * - Downsamples spatial scanning (sampling every 4 pixels) to eliminate 
+     *   high-frequency visual jitter, cloud artifacts, and audio static.
+     * - Implements temporal frequency smoothing (rampTo) to prevent jarring 
+     *   clicks and create a soothing, legible melodic contour for BLV researchers.
+     * 
+     * @param {CanvasRenderingContext2D} ctx - The 2D rendering context of the map canvas.
+     * @param {Array<Object>} boxes - Array of bounding regions [{x, y, w, h}] supporting split/wrapped features.
+     * @param {Object} audioConfig - Unified audio configuration object ({ minFrequency, maxFrequency, colorChannel, scanDurationMs }).
+     * @param {Function} [onCursorMove] - Optional callback triggered on each scan step, returning current X coordinate and active box.
+     * @param {Function} [onScanComplete] - Optional callback triggered when the full multi-box sweep finishes.
      */
     async function scanBoundingBoxes(ctx, boxes, audioConfig, onCursorMove, onScanComplete) {
         if (isMuted || !synth || !boxes || boxes.length === 0) return;
@@ -109,25 +129,18 @@ const AudioCore = (() => {
             await Tone.start();
         }
 
-        const totalDurationMs = audioConfig.scanDurationMs || 1500;
-        
-        // Ensure width is safely calculated as a coerced integer
+        const totalDurationMs = audioConfig.scanDurationMs || 3000;
         const totalPixelWidth = boxes.reduce((sum, box) => sum + Math.floor(Number(box.width) || Number(box.w) || 0), 0);
         if (totalPixelWidth <= 0) return;
 
-        const timePerPixelMs = totalDurationMs / totalPixelWidth;
+        // SOUND ENGINEERING UPGRADE: Downsample sampling step to every 4 pixels 
+        // to completely eliminate high-frequency pixel jitter and noise.
+        const sampleStep = 4; 
+        const totalSteps = Math.floor(totalPixelWidth / sampleStep);
+        const timePerStepMs = totalDurationMs / totalSteps;
 
-        // Force explicit integer casting for the first sample point
-        const firstBox = boxes[0];
-        const boxX = Math.floor(Number(firstBox.x) || 0);
-        const boxY = Math.floor(Number(firstBox.y) || 0);
-        const boxH = Math.floor(Number(firstBox.height) || Number(firstBox.h) || 0);
-        const firstSampleY = Math.floor(boxY + (boxH / 2));
+        synth.triggerAttack(audioConfig.minFrequency || 90);
 
-        const firstPixel = ctx.getImageData(boxX, firstSampleY, 1, 1).data;
-        synth.triggerAttack(pixelToFrequency(firstPixel, audioConfig));
-
-        // Sweep through each bounding box sequentially
         for (let b = 0; b < boxes.length; b++) {
             const box = boxes[b];
             const startX = Math.floor(Number(box.x) || 0);
@@ -137,18 +150,20 @@ const AudioCore = (() => {
             const currentH = Math.floor(Number(box.height) || Number(box.h) || 0);
             const sampleY = Math.floor(currentY + (currentH / 2));
 
-            for (let scanX = startX; scanX < endX; scanX++) {
+            for (let scanX = startX; scanX < endX; scanX += sampleStep) {
                 const safeX = Math.floor(Number(scanX));
                 const pixelData = ctx.getImageData(safeX, sampleY, 1, 1).data;
                 const freq = pixelToFrequency(pixelData, audioConfig);
 
-                synth.frequency.rampTo(freq, timePerPixelMs / 1000);
+                // SOUND ENGINEERING UPGRADE: Smooth glide rate matching step time 
+                // to eliminate harsh clicking and create a flowing, organic tone.
+                synth.frequency.rampTo(freq, (timePerStepMs * 1.5) / 1000);
 
                 if (typeof onCursorMove === "function") {
                     onCursorMove(safeX, box);
                 }
 
-                await new Promise(resolve => setTimeout(resolve, timePerPixelMs));
+                await new Promise(resolve => setTimeout(resolve, timePerStepMs));
             }
         }
 
