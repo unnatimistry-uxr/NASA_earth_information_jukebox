@@ -3,97 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Accessible Earth Information Jukebox - NASA Space Apps</title>
-    <!-- POUR-Compliant High Contrast Stylesheet -->
+    <title>NASA Earth Information Jukebox - Accessible Data Gateway</title>
     <link rel="stylesheet" href="css/style.css">
-    <!-- Tone.js CDN for clean audio sonification synthesis -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.49/Tone.js"></script>
 </head>
-<body>
-    <!-- Header Landmark -->
-    <header role="banner">
-        <h1>Earth Information Jukebox</h1>
-        <p>Accessible Multi-Sensory Data Exploration for BLV Researchers</p>
-    </header>
+<body class="gateway-body">
 
-    <!-- Main Content Landmark -->
-    <main role="main" class="main-container">
-        
-        <!-- TIER 1: Executive Summary -->
-        <section class="sr-summary-banner" aria-labelledby="summaryHeading">
-            <h2 id="summaryHeading" class="sr-only">Executive Summary</h2>
-            <div id="executiveSummary" aria-live="polite">
-                Loading dataset executive summary...
+    <main class="gateway-container" role="main">
+        <header class="gateway-header">
+            <h1>NASA Earth Information Jukebox</h1>
+            <p>An interactive, multi-modal audio-visual exploration system designed for universal accessibility. Experience satellite observations through dual-channel spatial audio sonification and keyboard-driven navigation.</p>
+        </header>
+
+        <section aria-label="Available Visualizations">
+            <div class="dataset-card">
+                <h2>Global Ocean Nutrient Stress (2002–2021)</h2>
+                <p>Explore two decades of NASA satellite data mapping how warming ocean waters restrict upwelling and impact marine microorganisms.</p>
+                <a href="ocean-stress.html" class="explore-btn" role="button">Explore Ocean Nutrient Stress</a>
             </div>
         </section>
-
-        <!-- AUDIO LEGEND: Placed before the map for optimal screen reader document order -->
-        <section class="audio-legend-section" aria-label="Audio Legend Explanation">
-            <h2>Audio Legend (Color-to-Pitch Scale)</h2>
-            <div id="legendContainer" class="legend-grid">
-                <!-- Dynamically populated by app.js from datasets.json -->
-            </div>
-        </section>
-
-        <!-- Workspace Grid Container -->
-        <div class="workspace-grid">
-            
-            <!-- LEFT / CENTER: Interactive Map Canvas Container -->
-            <section class="map-section" aria-label="Interactive Map Workspace">
-                <div class="map-container">
-                    <canvas id="mapCanvas" 
-                            aria-label="Global Ocean Nutrient Stress Map. 4 by 2 grid navigation area." 
-                            aria-describedby="statusRegion" 
-                            role="img" 
-                            tabindex="0"></canvas>
-                </div>
-                <!-- Status & Coordinate Readout (ARIA live region for real-time navigation announcements) -->
-                <div id="statusRegion" aria-live="polite" aria-atomic="true" class="status-readout">
-                    Status: Ready. Use Arrow Keys to navigate zones sequentially, Spacebar to hear data stream, Home for origin, End to exit.
-                </div>
-            </section>
-
-            <!-- RIGHT: Sighted Demo & Accessibility Control Panel -->
-            <aside class="control-panel" role="complementary" aria-label="Demo and Accessibility Controls">
-                <h2>Exploration Controls</h2>
-                
-                <!-- Reserved Landmark Section -->
-                <fieldset>
-                    <legend>Tier 3: Quick Landmark Jumps</legend>
-                    <button id="btnPacific" class="control-btn" disabled title="Coming soon with new design">Pacific Sector (Reserved)</button>
-                    <button id="btnAtlantic" class="control-btn" disabled title="Coming soon with new design">Atlantic Sector (Reserved)</button>
-                    <button id="btnIndian" class="control-btn" disabled title="Coming soon with new design">Indian Ocean Sector (Reserved)</button>
-                </fieldset>
-
-                <!-- Navigation Actions -->
-                <fieldset>
-                    <legend>Navigation Actions</legend>
-                    <button id="btnHome" class="control-btn">
-                        <span aria-hidden="true">🏠</span> Home / Origin (Zone 1)
-                    </button>
-                    <button id="btnExit" class="control-btn">
-                        <span aria-hidden="true">🚪</span> Exit / Release Focus (End)
-                    </button>
-                </fieldset>
-
-                <!-- Audio & Accessibility Settings -->
-                <fieldset>
-                    <legend>Audio & Accessibility Settings</legend>
-                    <button id="btnMute" class="control-btn toggle-btn">
-                        <span aria-hidden="true">🔊</span> Mute Synth (M)
-                    </button>
-                    <button id="btnReplay" class="control-btn">
-                        <span aria-hidden="true">⏪</span> Replay Audio Stream (Spacebar)
-                    </button>
-                </fieldset>
-            </aside>
-
-        </div>
     </main>
 
-    <!-- Core Application Scripts -->
-    <script src="js/paths.js"></script>
-    <script src="js/app.js"></script>
-    <script src="js/gridNavigation.js"></script>
 </body>
 </html>

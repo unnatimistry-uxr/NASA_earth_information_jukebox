@@ -5,7 +5,11 @@ const PATHS = {
     },
     SCRIPTS: {
         toneLibrary: "https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.49/Tone.js",
-        gridNav: "js/gridNavigation.js"
+        audioCore: "js/audioCore.js",
+        gridEngine: "js/gridEngine.js",
+        oceanEngine: "js/oceanEngine.js",
+        continentEngine: "js/continentEngine.js",
+        legendEngine: "js/legendEngine.js"
     }
 };
 
