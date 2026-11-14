@@ -210,6 +210,93 @@
           "boxes": [{ "x": 100, "y": 400, "w": 600, "h": 45 }]
         }
       }
+    },
+    "viirsActiveFires": {
+      "metadata": {
+        "title": "Wildland Fires: Global View (Dec 2024)",
+        "description": "Climate change continues to cause longer fire seasons and more severe wildfires. Worldview active fires from VIIRS highlight global thermal anomalies and fire activity across continents.",
+        "source": "NASA Earth Observing Satellites & Worldview"
+      },
+      "paths": {
+        "image": "assets/images/Worldview_VIIRSFires.png"
+      },
+      "canvasSettings": {
+        "width": 800,
+        "height": 450
+      },
+      "navigationMode": "grid",
+      "synthSettings": {
+        "oscillatorType": "sine",
+        "envelope": {
+          "attack": 0.05,
+          "decay": 0.1,
+          "sustain": 0.2,
+          "release": 0.3
+        }
+      },
+      "audioConfig": {
+        "minFrequency": 200,
+        "maxFrequency": 900,
+        "colorChannel": "red",
+        "scanDurationMs": 1500
+      },
+      "legendConfig": {
+        "title": "Active Fire Thermal Intensity Scale",
+        "unit": "Thermal Activity Index",
+        "minLabel": "Low / Background (Transparent)",
+        "maxLabel": "High Active Fire Density (#ff0000)",
+        "colorStops": [
+          { "position": 0.0, "color": "rgba(255, 250, 224, 0.2)", "value": 0.0, "desc": "Background atmosphere and cloud cover" },
+          { "position": 0.5, "color": "#ff8000", "value": 0.5, "desc": "Moderate thermal signature zone" },
+          { "position": 1.0, "color": "#ff0000", "value": 1.0, "desc": "High active fire concentration threshold (VIIRS)" }
+        ]
+      },
+      "gridSettings": {
+        "columns": 4,
+        "rows": 2
+      },
+      "gridData": {
+        "0,0": {
+          "name": "North America & North Pacific Wildfire Zones",
+          "narration": "North America grid zone, displaying active thermal anomalies across North America and Alaska.",
+          "boxes": [{"x": 0, "y": 0, "w": 200, "h": 225}]
+        },
+        "1,0": {
+          "name": "North Atlantic & Europe Fire Monitoring",
+          "narration": "North Atlantic and European grid zone, tracking regional thermal signals.",
+          "boxes": [{"x": 200, "y": 0, "w": 200, "h": 225}]
+        },
+        "2,0": {
+          "name": "Eurasia & Northern Asia Wildfire Fringe",
+          "narration": "Eurasia and Northern Asia grid zone, monitoring broad boreal forest thermal activity.",
+          "boxes": [{"x": 400, "y": 0, "w": 200, "h": 225}]
+        },
+        "3,0": {
+          "name": "East Asia & Western Pacific Sector",
+          "narration": "East Asia and Western Pacific grid zone.",
+          "boxes": [{"x": 600, "y": 0, "w": 200, "h": 225}]
+        },
+        "0,1": {
+          "name": "South America & Amazon Basin Biomass Burning",
+          "narration": "South America grid zone, highlighting intense biomass burning across the Amazon and southern continent.",
+          "boxes": [{"x": 0, "y": 225, "w": 200, "h": 225}]
+        },
+        "1,1": {
+          "name": "Africa & Sub-Saharan Agricultural Burning",
+          "narration": "Africa grid zone, capturing extensive seasonal agricultural and wildland burning belts.",
+          "boxes": [{"x": 200, "y": 225, "w": 200, "h": 225}]
+        },
+        "2,1": {
+          "name": "South Asia & Indian Ocean Sector",
+          "narration": "South Asia and Indian Ocean grid zone.",
+          "boxes": [{"x": 400, "y": 225, "w": 200, "h": 225}]
+        },
+        "3,1": {
+          "name": "Australia & Oceania Wildfire Hotspots",
+          "narration": "Australia and Oceania grid zone, monitoring episodic brushfires and seasonal thermal activity.",
+          "boxes": [{"x": 600, "y": 225, "w": 200, "h": 225}]
+        }
+      }
     }
   }
 }
