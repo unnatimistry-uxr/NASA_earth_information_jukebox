@@ -25,7 +25,7 @@
         </div>
 
         <!-- Dynamic Audio Legend Container -->
-        <div id="dynamicLegendContainer" class="dynamic-legend-section"></div>
+        <div class="dynamic-legend-section"></div>
 
         <!-- Workspace Grid Container -->
         <div class="workspace-grid">
@@ -73,15 +73,26 @@
                         Replay Audio Stream (Spacebar)
                     </button>
                 </fieldset>
+
+                <!-- Gateway Navigation Link -->
+                <div class="gateway-link-container">
+                    <a href="index.html" class="control-btn" role="button">Back to Home Gateway</a>
+                </div>
+                
             </aside>
 
         </div>
     </main>
 
+    <!-- Page-Specific Dataset Target Declaration -->
+    <script>
+        window.TARGET_DATASET = "oceanNutrientStress";
+    </script>
+
     <!-- Core Application Scripts (Loaded in strict dependency order) -->
     <script src="js/paths.js"></script>
     <script src="js/audioCore.js"></script>
+    <script src="js/legendEngine.js"></script> <!-- Moved BEFORE app.js so initLegendEngine is available -->
     <script src="js/app.js"></script>
-    <script src="js/legendEngine.js"></script>
 </body>
 </html>

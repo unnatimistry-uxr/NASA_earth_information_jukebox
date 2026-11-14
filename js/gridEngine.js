@@ -16,7 +16,10 @@ async function initGridEngine() {
         if (!response.ok) throw new Error("Failed to load dataset configuration.");
         
         const data = await response.json();
-        const dataset = data.datasets[data.activeDataset];
+        // Replace: const dataset = data.datasets[data.activeDataset];
+        // With:
+        const activeKey = window.TARGET_DATASET || data.activeDataset;
+        const dataset = data.datasets[activeKey];
 
         // Ensure this dataset is meant for grid navigation before running
         if (dataset.navigationMode !== "grid") {
@@ -189,7 +192,7 @@ async function initGridEngine() {
             await AudioCore.scanBoundingBoxes(
                 ctx,
                 boxes,
-                dataset.audioLegend,
+                dataset.audioConfig,
                 (cursorX) => {
                     // On every pixel tick, update visual cursor line
                     drawScene(cursorX);

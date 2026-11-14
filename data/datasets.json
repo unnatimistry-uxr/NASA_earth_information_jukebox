@@ -2,8 +2,8 @@
   "_comment": "MASTER CONFIGURATION SCHEMA - NASA Earth Information Jukebox",
   "_documentation": {
     "navigationMode": "Controls active UI engine: 'grid' (4x2 grid), 'oceans' (5 ocean regions), or 'continents' (7 continent regions).",
-    "colorChannel": "Determines which RGB channel or brightness metric is mapped to audio pitch: 'red', 'green', 'blue', or 'luminance'.",
-    "boxes": "Array of rectangular bounding regions [{x, y, w, h}] allowing split/wrapped features (e.g., Pacific Ocean on both map edges) to scan sequentially."
+    "audioConfig": "Defines universal sonification parameters (frequency range, color channel mapping, and scan duration).",
+    "legendConfig": "Defines accessible visual gradient scale, color stops, units, and descriptive labels."
   },
   "activeDataset": "oceanNutrientStress",
   "datasets": {
@@ -20,7 +20,7 @@
         "width": 800,
         "height": 450
       },
-      "navigationMode": "grid",
+      "navigationMode": "oceans",
       "synthSettings": {
         "oscillatorType": "sine",
         "envelope": {
@@ -30,14 +30,21 @@
           "release": 0.3
         }
       },
-      "audioLegend": {
+      "audioConfig": {
         "minFrequency": 150,
         "maxFrequency": 800,
-        "unit": "Hz",
         "colorChannel": "red",
-        "scanDurationMs": 1500,
-        "lowDescription": "Cool waters and stable low stress zones",
-        "highDescription": "Warm waters and high nutrient stress zones"
+        "scanDurationMs": 1500
+      },
+      "legendConfig": {
+        "title": "Ocean Nutrient Stress Scale",
+        "unit": "Stress Index",
+        "minLabel": "Low Stress (Cool Waters)",
+        "maxLabel": "High Stress (Warm Waters)",
+        "colorStops": [
+          { "position": 0.0, "color": "#fffae0", "value": 0.0, "desc": "Cool waters and stable low stress zones" },
+          { "position": 1.0, "color": "#b30000", "value": 1.0, "desc": "Warm waters and high nutrient stress zones" }
+        ]
       },
       "gridSettings": {
         "columns": 4,
@@ -122,56 +129,87 @@
             { "x": 0, "y": 0, "w": 800, "h": 60 }
           ]
         }
+      }
+    },
+    "carbonMonoxideAirQuality": {
+      "metadata": {
+        "title": "Global Carbon Monoxide (CO) Air Quality (2023)",
+        "description": "Near-surface concentration of carbon monoxide (CO) estimated by NASA’s GEOS-CF model. Derived from incomplete combustion, vehicle traffic, industry, and widespread wildfires, illustrating the long-range transport of air pollution.",
+        "source": "NASA Global Modeling and Assimilation Office (GMAO) - GEOS-CF Model"
+      },
+      "paths": {
+        "image": "assets/images/AQI_CO.jpg"
+      },
+      "canvasSettings": {
+        "width": 800,
+        "height": 450
+      },
+      "navigationMode": "continents",
+      "synthSettings": {
+        "oscillatorType": "sine",
+        "envelope": {
+          "attack": 0.05,
+          "decay": 0.1,
+          "sustain": 0.2,
+          "release": 0.3
+        }
+      },
+      "audioConfig": {
+        "minFrequency": 180,
+        "maxFrequency": 850,
+        "colorChannel": "red",
+        "scanDurationMs": 1500
+      },
+      "legendConfig": {
+        "title": "Carbon Monoxide (CO) Concentration Scale",
+        "unit": "parts per billion by volume (ppbv)",
+        "minLabel": "40 ppbv (Low)",
+        "maxLabel": "500 ppbv (High)",
+        "colorStops": [
+          { "position": 0.0, "color": "#fffae0", "value": 40, "desc": "Low background concentration" },
+          { "position": 0.25, "color": "#ffa500", "value": 100, "desc": "Moderate mixing level" },
+          { "position": 0.5, "color": "#e65c00", "value": 130, "desc": "Elevated regional pollution zone" },
+          { "position": 0.75, "color": "#b30000", "value": 200, "desc": "High concentration threshold" },
+          { "position": 1.0, "color": "#590000", "value": 500, "desc": "Maximum concentration extreme (Wildfires/Industrial)" }
+        ]
       },
       "continentRegions": {
         "northAmerica": {
           "name": "North America",
-          "narration": "North American continent region.",
-          "boxes": [{ "x": 80, "y": 50, "w": 200, "h": 180 }]
+          "narration": "North America continent region, showing industrial and wildfire-driven carbon monoxide concentrations.",
+          "boxes": [{ "x": 80, "y": 40, "w": 220, "h": 180 }]
         },
         "southAmerica": {
           "name": "South America",
-          "narration": "South American continent region.",
-          "boxes": [{ "x": 200, "y": 230, "w": 120, "h": 180 }]
+          "narration": "South American continent region, highlighting agricultural burning and biomass emissions.",
+          "boxes": [{ "x": 180, "y": 220, "w": 120, "h": 180 }]
         },
         "europe": {
           "name": "Europe",
-          "narration": "European continent region.",
-          "boxes": [{ "x": 380, "y": 50, "w": 100, "h": 100 }]
+          "narration": "European continent region, tracking dense urban and regulated industrial emissions.",
+          "boxes": [{ "x": 350, "y": 40, "w": 120, "h": 100 }]
         },
         "africa": {
           "name": "Africa",
-          "narration": "African continent region.",
-          "boxes": [{ "x": 380, "y": 150, "w": 130, "h": 200 }]
+          "narration": "African continent region, capturing extensive seasonal biomass and agricultural burning zones.",
+          "boxes": [{ "x": 350, "y": 140, "w": 140, "h": 220 }]
         },
         "asia": {
           "name": "Asia",
-          "narration": "Asian continent region.",
-          "boxes": [{ "x": 480, "y": 50, "w": 200, "h": 200 }]
+          "narration": "Asian continent region, displaying high industrial and population-density concentration plumes across East and South Asia.",
+          "boxes": [{ "x": 470, "y": 30, "w": 250, "h": 200 }]
         },
         "australia": {
           "name": "Australia",
-          "narration": "Australian continent region.",
-          "boxes": [{ "x": 620, "y": 250, "w": 120, "h": 130 }]
+          "narration": "Australian continent region, monitoring episodic wildfire and regional background levels.",
+          "boxes": [{ "x": 620, "y": 240, "w": 130, "h": 140 }]
         },
         "antarctica": {
           "name": "Antarctica",
-          "narration": "Antarctic polar landmass region.",
-          "boxes": [{ "x": 100, "y": 410, "w": 600, "h": 40 }]
+          "narration": "Antarctic polar landmass region, serving as a baseline background reference atmosphere.",
+          "boxes": [{ "x": 100, "y": 400, "w": 600, "h": 45 }]
         }
-      },
-      "legendConfig": {
-          "title": "Marine Nutrient Stress Scale",
-          "unit": "Relative Stress Index (0.0 – 1.0)",
-          "minLabel": "Low Stress (Nutrient-Rich)",
-          "maxLabel": "High Stress (Nutrient-Depleted)",
-          "colorStops": [
-            { "position": 0.0, "color": "#fffae0", "value": 0.0, "desc": "Low nutrient stress, stable upwelling zone" },
-            { "position": 0.35, "color": "#ffd25a", "value": 0.3, "desc": "Moderate temperature and mild nutrient limitation" },
-            { "position": 0.65, "color": "#ff6e28", "value": 0.7, "desc": "Elevated warming and stratified surface waters" },
-            { "position": 1.0, "color": "#b30000", "value": 1.0, "desc": "Maximum physiological stress zone for microorganisms" }
-          ]
-        }
+      }
     }
   }
 }

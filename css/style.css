@@ -254,6 +254,17 @@ legend {
     border: 0;
 }
 
+/* Gateway Link Container */
+.gateway-link-container {
+    margin-top: 1.5rem;
+}
+
+.gateway-link-container .control-btn {
+    text-align: center;
+    display: block;
+    text-decoration: none;
+}
+
 /* ========================================================================== */
 /* Gateway Landing Page Styles (Appended)                                     */
 /* ========================================================================== */
@@ -339,4 +350,63 @@ legend {
     opacity: 0.9;
     background-color: var(--accent-hover, #0284c7);
     color: var(--text-primary, #f8fafc);
+}
+
+
+/* ==========================================================================
+   DYNAMIC LEGEND COMPONENT STYLES (Zero-Hardcoding Architecture)
+   ========================================================================== */
+.audio-legend-wrapper {
+    margin-bottom: var(--spacing-lg);
+    background: var(--bg-surface);
+    border: 2px solid var(--border-color);
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius);
+    text-align: left;
+}
+
+.audio-legend-wrapper h3 {
+    color: var(--text-heading);
+    margin-top: 0;
+    font-size: var(--font-size-heading);
+    margin-bottom: 0.5rem;
+}
+
+.legend-desc {
+    font-size: 0.85rem;
+    color: var(--text-secondary, #94a3b8);
+    margin-bottom: 1rem;
+}
+
+.legend-gradient-bar {
+    height: 36px;
+    width: 100%;
+    min-width: 200px;
+    display: block;
+    border-radius: var(--border-radius-sm);
+    position: relative;
+    cursor: pointer;
+    outline-offset: 2px;
+    margin: var(--spacing-sm) 0;
+    border: 1px solid var(--border-color);
+}
+
+.legend-gradient-bar:focus {
+    outline: var(--focus-outline-width) var(--focus-outline-style) var(--focus-ring);
+}
+
+.legend-axis-labels {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 8px;
+    font-size: 0.8rem;
+    color: var(--text-secondary, #94a3b8);
+}
+
+.legend-unit-footer {
+    text-align: center;
+    margin-top: 6px;
+    font-size: 0.75rem;
+    font-style: italic;
+    color: var(--text-secondary, #94a3b8);
 }

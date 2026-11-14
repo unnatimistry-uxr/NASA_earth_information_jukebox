@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Carbon Monoxide (CO) Air Quality - NASA Space Apps</title>
+    <!-- POUR-Compliant High Contrast Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Tone.js CDN for clean audio sonification synthesis -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.49/Tone.js"></script>
+</head>
+<body>
+    <!-- Header Landmark -->
+    <header role="banner">
+        <h1>Earth Information Jukebox</h1>
+        <p>Accessible Multi-Sensory Data Exploration for BLV Researchers</p>
+    </header>
+
+    <!-- Main Content Landmark -->
+    <main role="main" class="main-container">
+        
+        <!-- Executive Summary Container -->
+        <div id="datasetSummary" class="status-region" aria-live="polite">
+            Loading dataset executive summary...
+        </div>
+
+        <!-- Dynamic Audio Legend Container -->
+        <div class="dynamic-legend-section"></div>
+
+        <!-- Workspace Grid Container -->
+        <div class="workspace-grid">
+            
+            <!-- LEFT / CENTER: Interactive Map Canvas Container -->
+            <section class="map-section" aria-label="Interactive Map Workspace">
+                <div class="map-container">
+                    <canvas id="mapCanvas" 
+                            aria-label="Interactive Carbon Monoxide Continent Map. Use navigation controls or arrow keys to explore continents, Spacebar to hear data stream." 
+                            aria-describedby="statusRegion" 
+                            role="img" 
+                            tabindex="0"></canvas>
+                </div>
+                <!-- Status & Coordinate Readout (ARIA live region for real-time navigation announcements) -->
+                <div id="statusRegion" aria-live="polite" aria-atomic="true" class="status-readout">
+                    Status: Ready. Use continent controls or arrow keys to explore, Spacebar to hear data stream, Home for origin, End to exit.
+                </div>
+            </section>
+
+            <!-- RIGHT: Accessibility & Exploration Control Panel -->
+            <aside class="control-panel" role="complementary" aria-label="Exploration and Accessibility Controls">
+                <h2>Continent Exploration Controls</h2>
+                
+                <!-- DYNAMIC REGION / CONTINENT CONTROLS (Populated automatically based on JSON navigationMode) -->
+                <div id="dynamicNavControls" role="region" aria-label="Active Continent Navigation Mode Controls"></div>
+
+                <!-- Shared Global Navigation Actions -->
+                <fieldset>
+                    <legend>Navigation Actions</legend>
+                    <button id="btnHome" type="button" class="control-btn" aria-label="Return to starting region">
+                        Home / Origin
+                    </button>
+                    <button id="btnExit" type="button" class="control-btn" aria-label="Exit map exploration and release keyboard focus">
+                        Exit / Release Focus (End)
+                    </button>
+                </fieldset>
+
+                <!-- Shared Global Audio & Accessibility Settings -->
+                <fieldset>
+                    <legend>Audio &amp; Accessibility Settings</legend>
+                    <button id="btnMute" type="button" class="control-btn toggle-btn" aria-pressed="false" aria-label="Mute audio synthesizer">
+                        Mute Synth (M)
+                    </button>
+                    <button id="btnReplay" type="button" class="control-btn" aria-label="Replay current region audio stream">
+                        Replay Audio Stream (Spacebar)
+                    </button>
+                </fieldset>
+
+                <!-- Gateway Navigation Link -->
+                <div class="gateway-link-container">
+                    <a href="index.html" class="control-btn" role="button">Back to Home Gateway</a>
+                </div>
+            </aside>
+
+        </div>
+    </main>
+
+    <!-- Page-Specific Dataset Target Declaration -->
+    <script>
+        window.TARGET_DATASET = "carbonMonoxideAirQuality";
+    </script>
+
+    <!-- Core Application Scripts (Loaded in strict dependency order) -->
+    <script src="js/paths.js"></script>
+    <script src="js/audioCore.js"></script>
+    <script src="js/legendEngine.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

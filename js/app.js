@@ -20,8 +20,9 @@ async function initApp() {
         
         const data = await response.json();
         
-        // 2. Identify the active dataset object based on activeDataset pointer
-        const activeDatasetKey = data.activeDataset;
+        // 2. Identify the active dataset object: 
+        // Priority: Page-specific override (window.TARGET_DATASET) -> Fallback to JSON activeDataset
+        const activeDatasetKey = window.TARGET_DATASET || data.activeDataset;
         const dataset = data.datasets[activeDatasetKey];
 
         if (!dataset) {

@@ -14,7 +14,10 @@ async function initOceanEngine() {
         if (!response.ok) throw new Error("Failed to load dataset configuration.");
         
         const data = await response.json();
-        const dataset = data.datasets[data.activeDataset];
+        // Replace: const dataset = data.datasets[data.activeDataset];
+        // With:
+        const activeKey = window.TARGET_DATASET || data.activeDataset;
+        const dataset = data.datasets[activeKey];
 
         if (dataset.navigationMode !== "oceans") {
             console.log("Dataset navigationMode is not 'oceans'. Skipping oceanEngine.");
@@ -141,7 +144,7 @@ async function initOceanEngine() {
             await AudioCore.scanBoundingBoxes(
                 ctx,
                 boxes,
-                dataset.audioLegend,
+                dataset.audioConfig,
                 (cursorX) => {
                     drawScene(cursorX);
                 },
