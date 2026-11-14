@@ -1,0 +1,252 @@
+/* ==========================================================================
+   EARTH INFORMATION JUKEBOX - DESIGN SYSTEM & CSS VARIABLES (:root)
+   ========================================================================== */
+:root {
+    /* Color Palette (WCAG AAA High Contrast) */
+    --bg-primary: #0b0f19;
+    --bg-surface: #1e293b;
+    --border-color: #475569;
+    --border-bright: #38bdf8;
+    
+    --text-primary: #f3f4f6;
+    --text-heading: #38bdf8;
+    --text-accent: #facc15;
+    
+    /* Interactive & Action Colors */
+    --btn-bg: #0284c7;
+    --btn-hover: #0369a1;
+    --focus-ring: #facc15;
+    --cursor-line: #38bdf8;
+
+    /* Legend / Stress Colors */
+    --legend-low-bg: #1e3a8a;
+    --legend-low-text: #93c5fd;
+    --legend-high-bg: #7f1d1d;
+    --legend-high-text: #fca5a5;
+
+    /* Typography */
+    --font-family: Arial, sans-serif;
+    --font-size-base: 1rem;
+    --font-size-lg: 1.1rem;
+    --font-size-heading: 1.2rem;
+
+    /* Spacing & Layout */
+    --spacing-sm: 8px;
+    --spacing-md: 15px;
+    --spacing-lg: 20px;
+    --spacing-xl: 30px;
+    --border-radius: 6px;
+    --border-radius-sm: 4px;
+
+    /* Focus & Border Styles */
+    --focus-outline-width: 4px;
+    --focus-outline-style: solid;
+}
+
+/* ==========================================================================
+   BASE & LAYOUT STYLES
+   ========================================================================== */
+body {
+    font-family: var(--font-family);
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    margin: 0;
+    padding: var(--spacing-lg);
+    text-align: center;
+}
+
+header h1 {
+    color: var(--text-heading);
+    margin-bottom: var(--spacing-sm);
+}
+
+header p {
+    font-size: var(--font-size-base);
+    color: var(--text-primary);
+}
+
+.main-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* ==========================================================================
+   TIER 1: EXECUTIVE SUMMARY BANNER
+   ========================================================================== */
+.sr-summary-banner {
+    background-color: var(--bg-surface);
+    border: 2px solid var(--border-bright);
+    color: var(--text-primary);
+    padding: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+    font-size: var(--font-size-lg);
+    border-radius: var(--border-radius);
+    text-align: left;
+}
+
+/* ==========================================================================
+   AUDIO LEGEND COMPONENT (Displayed Before Map)
+   ========================================================================== */
+.audio-legend-section {
+    margin-bottom: var(--spacing-lg);
+    background: var(--bg-surface);
+    border: 2px solid var(--border-color);
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius);
+    text-align: left;
+}
+
+.audio-legend-section h3 {
+    color: var(--text-heading);
+    margin-top: 0;
+    font-size: var(--font-size-heading);
+}
+
+.legend-grid {
+    display: flex;
+    justify-content: space-around;
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-sm);
+    flex-wrap: wrap;
+}
+
+.legend-item {
+    flex: 1;
+    min-width: 250px;
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius-sm);
+    font-weight: bold;
+}
+
+.legend-item.low { 
+    background-color: var(--legend-low-bg); 
+    color: var(--legend-low-text); 
+}
+
+.legend-item.high { 
+    background-color: var(--legend-high-bg); 
+    color: var(--legend-high-text); 
+}
+
+/* ==========================================================================
+   WORKSPACE & MAP CONTAINER
+   ========================================================================== */
+.workspace-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-lg);
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.map-section {
+    flex: 2;
+    min-width: 300px;
+}
+
+.map-container {
+    border: 4px solid var(--text-primary);
+    background: #000;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    border-radius: var(--border-radius-sm);
+    overflow: hidden;
+}
+
+canvas {
+    display: block;
+    width: 100%;
+    height: auto;
+    cursor: crosshair;
+}
+
+canvas:focus {
+    outline: var(--focus-outline-width) var(--focus-outline-style) var(--focus-ring);
+}
+
+.status-readout {
+    margin-top: var(--spacing-md);
+    font-size: var(--font-size-lg);
+    color: var(--text-accent);
+    font-weight: bold;
+    background: var(--bg-surface);
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius-sm);
+    text-align: left;
+    border: 1px solid var(--border-color);
+}
+
+/* ==========================================================================
+   CONTROL PANEL & BUTTONS
+   ========================================================================== */
+.control-panel {
+    flex: 1;
+    min-width: 280px;
+    background: var(--bg-surface);
+    border: 2px solid var(--border-color);
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius);
+    text-align: left;
+}
+
+.control-panel h2 {
+    color: var(--text-heading);
+    margin-top: 0;
+    font-size: var(--font-size-heading);
+}
+
+fieldset {
+    border: 1px solid var(--border-color);
+    margin-bottom: var(--spacing-md);
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius-sm);
+}
+
+legend {
+    color: var(--text-heading);
+    font-weight: bold;
+}
+
+.control-btn {
+    display: block;
+    width: 100%;
+    background-color: var(--btn-bg);
+    color: var(--text-primary);
+    border: none;
+    padding: var(--spacing-sm) var(--spacing-md);
+    margin-top: var(--spacing-sm);
+    border-radius: var(--border-radius-sm);
+    font-size: var(--font-size-base);
+    cursor: pointer;
+    font-weight: bold;
+    text-align: center;
+}
+
+.control-btn:hover {
+    background-color: var(--btn-hover);
+}
+
+.control-btn:focus {
+    outline: var(--focus-outline-width) var(--focus-outline-style) var(--focus-ring);
+}
+
+/* Legend subline metadata */
+.legend-subline {
+    font-size: 0.85rem;
+    opacity: 0.8;
+    margin-top: 4px;
+}
+
+/* Screen-reader-only accessible hiding class */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}

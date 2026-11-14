@@ -1,0 +1,95 @@
+{
+  "activeDataset": "oceanNutrientStress",
+  "datasets": {
+    "oceanNutrientStress": {
+      "metadata": {
+        "title": "Global Ocean Nutrient Stress (2002–2021)",
+        "description": "Global ocean map based on two decades of NASA satellite data, showing how warming waters limit nutrients. Red regions indicate the highest nutrient-related stress.",
+        "source": "NASA Satellite Observations & Ocean Surveys"
+      },
+      "paths": {
+        "image": "assets/images/nutrient_stress_map.jpg"
+      },
+      "canvasSettings": {
+        "width": 800,
+        "height": 450
+      },
+      "synthSettings": {
+        "oscillatorType": "sine",
+        "envelope": {
+          "attack": 0.05,
+          "decay": 0.1,
+          "sustain": 0.2,
+          "release": 0.3
+        }
+      },
+      "audioLegend": {
+        "minFrequency": 150,
+        "maxFrequency": 800,
+        "unit": "Hz",
+        "lowDescription": "Cool waters and stable low stress zones",
+        "highDescription": "Warm waters and high nutrient stress zones"
+      },
+      "gridSettings": {
+        "columns": 4,
+        "rows": 2,
+        "startX": 0,
+        "startY": 0
+      },
+      "gridData": {
+        "0,0": {
+          "name": "North Pacific Ocean & Alaska Coast",
+          "narration": "North Pacific Ocean and Alaska Coast."
+        },
+        "1,0": {
+          "name": "Central North Pacific Basin",
+          "narration": "Central North Pacific Basin."
+        },
+        "2,0": {
+          "name": "North Atlantic Basin",
+          "narration": "North Atlantic Basin."
+        },
+        "3,0": {
+          "name": "Northwest Pacific & Arctic Fringe",
+          "narration": "Northwest Pacific and Arctic Fringe."
+        },
+        "0,1": {
+          "name": "South Pacific & Oceania",
+          "narration": "South Pacific and Oceania."
+        },
+        "1,1": {
+          "name": "Equatorial South Pacific",
+          "narration": "Equatorial South Pacific high nutrient stress zone."
+        },
+        "2,1": {
+          "name": "South Atlantic & Southern Africa",
+          "narration": "South Atlantic and Southern Africa."
+        },
+        "3,1": {
+          "name": "Indian Ocean Basin",
+          "narration": "Indian Ocean Basin."
+        }
+      },
+      "landmarks": {
+        "1": {
+          "name": "Pacific Sector",
+          "gridX": 1,
+          "gridY": 1,
+          "description": "Equatorial South Pacific high stress zone."
+        },
+        "2": {
+          "name": "Atlantic Sector",
+          "gridX": 2,
+          "gridY": 0,
+          "description": "North Atlantic Basin."
+        },
+        "3": {
+          "name": "Indian Ocean Sector",
+          "gridX": 3,
+          "gridY": 1,
+          "description": "Indian Ocean tropical zone."
+        }
+      }
+    }
+  }
+}
