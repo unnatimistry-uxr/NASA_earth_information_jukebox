@@ -977,3 +977,377 @@ canvas:focus {
         grid-template-columns: 1fr;
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ==========================================================================
+   BANDS & SECTION LAYOUTS
+   ========================================================================== */
+.band {
+  padding: var(--s9) 0;
+  border-top: 1px solid var(--rule);
+}
+
+.band-alt {
+  background: var(--surface);
+}
+
+.band-ink {
+  background: var(--ink);
+  color: var(--paper);
+  border-top: 0;
+}
+
+.label {
+  font-family: var(--mono);
+  font-size: .875rem;
+  color: var(--ink-2);
+  margin: 0 0 var(--s3);
+  letter-spacing: .02em;
+}
+
+.band h2 {
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  line-height: 1.1;
+  letter-spacing: -.02em;
+  font-weight: 800;
+  margin: 0 0 var(--s6);
+  max-width: 22ch;
+}
+
+.intro {
+  max-width: 60ch;
+  margin: calc(var(--s6) * -.5) 0 var(--s6);
+  color: var(--ink-2);
+}
+
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--s6);
+  max-width: 68rem;
+}
+
+.two-col p {
+  margin: 0;
+}
+
+@media (max-width: 760px) {
+  .two-col {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* ==========================================================================
+   STATS SECTION
+   ========================================================================== */
+.sub-h {
+  font-size: 1rem;
+  font-family: var(--mono);
+  font-weight: 600;
+  color: var(--ink-2);
+  margin: var(--s8) 0 var(--s4);
+}
+
+.stats {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-top: 2px solid var(--ink);
+}
+
+@media (max-width: 860px) {
+  .stats {
+    grid-template-columns: 1fr;
+  }
+}
+
+.stat {
+  padding: var(--s5) var(--s5) var(--s5) 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--s2);
+  border-bottom: 1px solid var(--rule);
+}
+
+.stat + .stat {
+  padding-left: var(--s5);
+  border-left: 1px solid var(--rule);
+}
+
+@media (max-width: 860px) {
+  .stat + .stat {
+    padding-left: 0;
+    border-left: 0;
+  }
+}
+
+.stat b {
+  font-size: clamp(2.4rem, 4.4vw, 3.5rem);
+  line-height: 1;
+  letter-spacing: -.03em;
+  font-weight: 600;
+}
+
+.stat span {
+  font-size: 1.125rem;
+  max-width: 26ch;
+}
+
+.stat small {
+  font-size: .875rem;
+  color: var(--ink-2);
+}
+
+.stat small a {
+  color: var(--ink-2);
+}
+
+
+/* ==========================================================================
+   STEPS SECTION
+   ========================================================================== */
+.steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--s5);
+  counter-reset: none;
+}
+
+@media (max-width: 960px) {
+  .steps {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .steps {
+    grid-template-columns: 1fr;
+  }
+}
+
+.steps li {
+  border-top: 2px solid var(--ink);
+  padding-top: var(--s4);
+}
+
+.step-n {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--ink);
+  border-radius: 50%;
+  font-weight: 600;
+  margin-bottom: var(--s3);
+}
+
+.steps h3 {
+  font-size: 1.25rem;
+  margin: 0 0 var(--s2);
+  line-height: 1.25;
+}
+
+.steps p {
+  margin: 0;
+  font-size: 1.0625rem;
+  color: var(--ink-2);
+}
+
+.keys {
+  margin: var(--s7) 0 0;
+  font-size: 1rem;
+  color: var(--ink-2);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--s2);
+}
+
+.keys .label {
+  margin: 0 var(--s2) 0 0;
+}
+
+kbd {
+  font-family: var(--mono);
+  font-size: .875em;
+  border: 1px solid var(--rule-strong);
+  border-bottom-width: 2px;
+  border-radius: var(--radius);
+  padding: 0 .4em;
+  color: var(--ink);
+  background: var(--paper);
+}
+
+
+/* ==========================================================================
+   CARDS SECTION
+   ========================================================================== */
+.cards {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--s5);
+}
+
+@media (max-width: 1040px) {
+  .cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 680px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--rule-strong);
+  display: flex;
+  flex-direction: column;
+}
+
+.card .plate {
+  border: 0;
+  border-bottom: 1px solid var(--rule-strong);
+}
+
+.card-body {
+  padding: var(--s5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--s3);
+  flex: 1;
+}
+
+.card .meta {
+  font-size: .8125rem;
+  color: var(--ink-2);
+  margin: 0;
+}
+
+.card h3 {
+  font-size: 1.5rem;
+  line-height: 1.15;
+  margin: 0;
+  letter-spacing: -.01em;
+}
+
+.card-body > p {
+  margin: 0;
+  font-size: 1.0625rem;
+}
+
+.hear {
+  margin: var(--s2) 0 0;
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: var(--s2) var(--s4);
+  font-size: 1rem;
+  border-top: 1px solid var(--rule);
+  padding-top: var(--s3);
+}
+
+.hear dt {
+  font-family: var(--mono);
+  font-size: .875rem;
+  color: var(--ink-2);
+  padding-top: 2px;
+}
+
+.hear dd {
+  margin: 0;
+}
+
+.card-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s2);
+  margin-top: auto;
+  padding-top: var(--s3);
+}
+
+
+/* ==========================================================================
+   CLOSING CTA & FOOTER
+   ========================================================================== */
+.cta-band {
+  text-align: left;
+}
+
+.band-ink h2 {
+  color: var(--paper);
+  margin-bottom: var(--s3);
+}
+
+.band-ink p {
+  color: #D9D4C9;
+  max-width: 52ch;
+  margin: 0 0 var(--s5);
+}
+
+.footer {
+  border-top: 1px solid var(--rule);
+  padding: var(--s6) 0;
+}
+
+.footer-inner {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s2) var(--s6);
+  justify-content: space-between;
+}
+
+.footer p {
+  margin: 0;
+  font-size: .9375rem;
+  color: var(--ink-2);
+  max-width: 60ch;
+}
+
+
+/* ==========================================================================
+   GLOBAL ACCESSIBILITY OVERRIDES
+   ========================================================================== */
+@media (forced-colors: active) {
+  .btn {
+    border: 1px solid ButtonText;
+  }
+  .sweep {
+    background: CanvasText;
+  }
+}

@@ -51,7 +51,74 @@
             </div>
         </section>
 
-        <!-- Visualizations / Cards Section -->
+
+
+        <!-- Problem -->
+
+        <section class="band" id="problem" aria-labelledby="problem-h">
+            <div class="wrap">
+            <p class="label">01 · The problem</p>
+            <h2 id="problem-h">Earth science is told in pictures.</h2>
+            <div class="two-col">
+                <p>Climate, air quality, wildfire and ocean health reach the public mostly as colour maps and satellite images. A colour scale means nothing to a screen reader, and alt text can summarise a map but cannot let someone explore it: where pollution peaks, how far it spreads, what is happening over their own region.</p>
+                <p>That shuts out students, researchers and citizens who are blind or have low vision from evidence that shapes decisions about their health and their communities.</p>
+            </div>
+
+            <h3 class="sub-h">Who is affected</h3>
+            <ul class="stats" role="list">
+                <li class="stat">
+                <b class="mono">2.2&nbsp;billion</b>
+                <span>people live with a near or distance vision impairment.</span>
+                </li>
+                <li class="stat">
+                <b class="mono">295&nbsp;million</b>
+                <span>people have moderate or severe distance vision impairment.</span>
+                </li>
+                <li class="stat">
+                <b class="mono">43&nbsp;million</b>
+                <span>people are blind, a number projected to reach about 60 million by 2050.</span>
+                </li>
+            </ul>
+            </div>
+        </section>
+
+
+
+        <!-- How It Works -->
+        <section class="band band-alt" id="how" aria-labelledby="how-h">
+            <div class="wrap">
+            <p class="label">02 · How it works</p>
+            <h2 id="how-h">From pixels to pitch in four steps.</h2>
+            <ol class="steps">
+                <li>
+                <span class="step-n mono" aria-hidden="true">1</span>
+                <h3>Start with a NASA image</h3>
+                <p>Each dataset is a published NASA visualization with its colour scale, such as GEOS-CF carbon monoxide or VIIRS active fires.</p>
+                </li>
+                <li>
+                <span class="step-n mono" aria-hidden="true">2</span>
+                <h3>Choose a region</h3>
+                <p>Move between continents, oceans or a map grid with the arrow keys or buttons. Every move is announced to your screen reader.</p>
+                </li>
+                <li>
+                <span class="step-n mono" aria-hidden="true">3</span>
+                <h3>Listen to the data</h3>
+                <p>Press Space and the Jukebox sweeps the region west to east. Colour becomes pitch: low values play low notes, high values rise.</p>
+                </li>
+                <li>
+                <span class="step-n mono" aria-hidden="true">4</span>
+                <h3>Learn the scale by ear</h3>
+                <p>Before exploring, play the audio legend: the full colour scale as one rising sweep, with values and units available to your screen reader.</p>
+                </li>
+            </ol>
+            <p class="keys"><span class="label">Keys</span> <kbd>←</kbd> <kbd>→</kbd> <kbd>↑</kbd> <kbd>↓</kbd> move · <kbd>Space</kbd> play region · <kbd>M</kbd> mute · <kbd>Home</kbd> start · <kbd>End</kbd> leave the map</p>
+            </div>
+        </section>
+
+
+
+
+        <!-- Solution Visualizations / Cards Section -->
         <section class="band" id="solutions" aria-labelledby="sol-h">
             <div class="wrap">
                 <div class="gateway-header">
@@ -80,7 +147,28 @@
             </div>
         </section>
 
+        <!-- CTA -->
+        <section class="band band-ink" aria-labelledby="cta-h">
+            <div class="wrap cta-band">
+            <h2 id="cta-h">Put on headphones and start listening.</h2>
+            <p>Works with a keyboard and a screen reader. No mouse or sight needed.</p>
+            <a class="btn btn-invert" href="ocean-stress.html">Try the Jukebox</a>
+            </div>
+        </section>
+
+
+        
+        
+
     </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="wrap footer-inner">
+            <p>Built for the NASA Space Apps “Earth Information Jukebox” challenge.</p>
+            <p>Data: NASA Scientific Visualization Studio, NASA GMAO GEOS-CF, NASA Worldview (VIIRS). Images are NASA’s; sound mappings are ours.</p>
+        </div>
+    </footer>
 
 </body>
 </html>
