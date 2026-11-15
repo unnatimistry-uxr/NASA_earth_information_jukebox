@@ -125,6 +125,9 @@
     --focus-outline-width: 3px;
     --focus-outline-style: solid;
     --border-subtle: 1px solid rgba(148, 163, 184, 0.2);
+
+
+    --max: 1180px; /* Increased from 1180px to utilize wide displays better */
 }
 
 
@@ -157,15 +160,18 @@ body {
     
     /* 4. Reset margins and apply standard padding around the edges */
     margin: 0;
-    padding: var(--spacing-lg);
+    padding: 0;
     
     /* 5. Readability settings: 1.6 line height prevents text from looking cramped */
     line-height: 1.6;
     -webkit-font-smoothing: antialiased; /* Makes text rendering crisper on Mac/iOS */
     
     /* 6. Center standard text (legacy rule preserved) */
-    text-align: center;
+    text-align: left !important; /* Forces uniform natural reading flow */
+
+    width: 100%;
 }
+
 
 /* Maintain heading colors and spacing securely */
 header h1 {
@@ -250,6 +256,66 @@ header p {
 .legend-item.high { 
     background-color: var(--legend-high-bg); 
     color: var(--legend-high-text); 
+}
+
+
+/* ==========================================================================
+   DYNAMIC LEGEND COMPONENT STYLES (Tokenized & Unified)
+   ========================================================================== */
+.audio-legend-wrapper {
+    margin-bottom: var(--s5);
+    background: var(--surface);
+    border: 1px solid var(--rule-strong);
+    padding: var(--s5);
+    border-radius: var(--border-radius);
+    text-align: left;
+}
+
+.audio-legend-wrapper h3 {
+    color: var(--ink);
+    margin-top: 0;
+    font-size: var(--font-size-heading);
+    font-weight: 800;
+    margin-bottom: var(--s2);
+}
+
+.legend-desc {
+    font-size: 0.85rem;
+    color: var(--ink-2);
+    margin-bottom: var(--s4);
+}
+
+.legend-gradient-bar {
+    height: 36px;
+    width: 100%;
+    min-width: 200px;
+    display: block;
+    border-radius: var(--border-radius-sm);
+    position: relative;
+    cursor: pointer;
+    outline-offset: 3px;
+    margin: var(--s3) 0;
+    border: 1px solid var(--rule-strong);
+}
+
+.legend-gradient-bar:focus {
+    outline: var(--focus-outline-width) var(--focus-outline-style) var(--focus-ring);
+}
+
+.legend-axis-labels {
+    display: flex;
+    justify-content: space-between;
+    margin-top: var(--s3);
+    font-size: 0.8rem;
+    color: var(--ink-2);
+}
+
+.legend-unit-footer {
+    text-align: center;
+    margin-top: var(--s2);
+    font-size: 0.75rem;
+    font-style: italic;
+    color: var(--ink-2);
 }
 
 /* ==========================================================================
@@ -439,61 +505,475 @@ canvas:focus {
     margin: 0;
 }
 
-/* ==========================================================================
-   DYNAMIC LEGEND COMPONENT STYLES (Tokenized & Unified)
-   ========================================================================== */
-.audio-legend-wrapper {
-    margin-bottom: var(--s5);
-    background: var(--surface);
-    border: 1px solid var(--rule-strong);
-    padding: var(--s5);
-    border-radius: var(--border-radius);
-    text-align: left;
+
+
+/* =================================================================us
+   Landing page (Home Page) Additions 
+   ================================================================ */
+
+/* Hero Section Styles */
+.hero {
+  position: relative;
+  padding: 4rem 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: center;
+  background-color: var(--bg-primary, #ffffff);
+  color: var(--text-primary, #111111);
 }
 
-.audio-legend-wrapper h3 {
-    color: var(--ink);
-    margin-top: 0;
-    font-size: var(--font-size-heading);
-    font-weight: 800;
-    margin-bottom: var(--s2);
+.hero-content h1 {
+  font-size: 3rem;
+  line-height: 1.1;
+  margin-bottom: 1rem;
 }
 
-.legend-desc {
-    font-size: 0.85rem;
-    color: var(--ink-2);
-    margin-bottom: var(--s4);
+.hero-content p {
+  font-size: 1.125rem;
+  margin-bottom: 2rem;
+  color: var(--text-secondary, #555555);
 }
 
-.legend-gradient-bar {
-    height: 36px;
+.hero-media img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* CTA Buttons Layout */
+.cta-group {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.btn-primary {
+  background-color: var(--accent-color, #0066cc);
+  color: #ffffff;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background-color 0.2s ease;
+}
+
+.btn-primary:hover {
+  background-color: var(--accent-hover, #004c99);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--text-primary, #111111);
+  padding: 0.75rem 1.5rem;
+  border: 1px solid var(--border-color, #cccccc);
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+/* Band Sections (Problem & How It Works) */
+.band {
+  padding: 5rem 2rem;
+  background-color: var(--bg-secondary, #f9f9f9);
+}
+
+.band-alt {
+  background-color: var(--bg-primary, #ffffff);
+}
+
+.band h2 {
+  font-size: 2.25rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Accessibility utility */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+
+/* =================================================================
+   Phase 2: Header & Top Navigation Bar (Fully Responsive & Aligned)
+   ================================================================ */
+
+/* Sticky header container spanning full width with design system colors */
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: var(--paper, #fcfbfa);
+  color: var(--ink, #1a1a1a);
+  border-bottom: 1px solid var(--border, rgba(0, 0, 0, 0.1));
+  width: 100%;
+  /* Ensures the header itself never touches the absolute screen edges on any viewport */
+  padding-left: clamp(1rem, 3vw, 2.5rem);
+  padding-right: clamp(1rem, 3vw, 2.5rem);
+}
+
+/* Inner wrapper ensuring proper centering and max layout width constraints */
+.topbar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 1rem 0; /* Vertical padding only, since horizontal padding is handled by .topbar */
+}
+
+/* Brand Wordmark positioned on the far left */
+.topbar .wordmark {
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1.125rem;
+  color: var(--ink, #1a1a1a);
+  margin-right: auto;
+  transition: opacity 0.2s ease;
+}
+
+.topbar .wordmark:hover {
+  opacity: 0.8;
+}
+
+/* Navigation wrapper grouping the nav list and controls */
+.topbar nav {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+}
+
+/* Horizontal navigation list layout */
+.topbar .navlist {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+}
+
+/* Navigation anchor styling with subtle opacity state */
+.topbar .navlist a {
+  text-decoration: none;
+  color: var(--ink, #1a1a1a);
+  opacity: 0.75;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: opacity 0.2s ease, color 0.2s ease;
+}
+
+.topbar .navlist a:hover,
+.topbar .navlist a:focus {
+  opacity: 1;
+  color: var(--ink, #1a1a1a);
+}
+
+/* Compact header action button styled using design tokens */
+.topbar .btn-sm {
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  background-color: var(--ink, #1a1a1a);
+  color: var(--paper, #fcfbfa);
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 600;
+  margin-left: 2rem;
+  transition: opacity 0.2s ease;
+}
+
+.topbar .btn-sm:hover {
+  opacity: 0.85;
+}
+
+/* Strict Accessibility Focus States (WCAG Compliance) */
+.topbar a:focus-visible,
+.topbar button:focus-visible {
+  outline: 2px solid var(--ink, #1a1a1a);
+  outline-offset: 2px;
+}
+
+/* =================================================================
+   Phase 2: Responsive Media Queries (Tablets & Mobile Devices)
+   ================================================================ */
+
+@media screen and (max-width: 768px) {
+  /* Adjust inner spacing for tablet screens */
+  .topbar-inner {
+    padding: 0.75rem 1rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  /* Scale down wordmark slightly for compact viewports */
+  .topbar .wordmark {
+    font-size: 1rem;
+    margin-right: 0;
+  }
+
+  /* Reorganize navigation into a full-width block below the brand */
+  .topbar nav {
+    gap: 1.5rem;
     width: 100%;
-    min-width: 200px;
-    display: block;
-    border-radius: var(--border-radius-sm);
-    position: relative;
-    cursor: pointer;
-    outline-offset: 3px;
-    margin: var(--s3) 0;
-    border: 1px solid var(--rule-strong);
-}
-
-.legend-gradient-bar:focus {
-    outline: var(--focus-outline-width) var(--focus-outline-style) var(--focus-ring);
-}
-
-.legend-axis-labels {
-    display: flex;
     justify-content: space-between;
-    margin-top: var(--s3);
-    font-size: 0.8rem;
-    color: var(--ink-2);
+    order: 3;
+    padding-top: 0.5rem;
+    border-top: 1px solid var(--border, rgba(0, 0, 0, 0.05));
+  }
+
+  /* Compact nav list item spacing */
+  .topbar .navlist {
+    gap: 1rem;
+    font-size: 0.85rem;
+  }
+
+  /* Reset button margins for flex arrangement on small screens */
+  .topbar .btn-sm {
+    margin-left: 0;
+    order: 2;
+  }
 }
 
-.legend-unit-footer {
+@media screen and (max-width: 480px) {
+  /* Tighter spacing adjustments for mobile screens */
+  .topbar .navlist {
+    gap: 0.75rem;
+    font-size: 0.8rem;
+  }
+  
+  .topbar-inner {
+    padding: 0.5rem 0.75rem;
+  }
+}
+
+
+/* =================================================================
+   GLOBAL LAYOUT & ALIGNMENT CORRECTIONS
+   ================================================================ */
+
+/* Global Container Wrapper (Establishes uniform max-width and breathing room) */
+.wrap {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding-left: var(--s5, 24px);
+    padding-right: var(--s5, 24px);
+    width: 100%;
+}
+
+/* =================================================================
+   PHASE 3: HERO SECTION (Balanced Two-Column Grid Architecture)
+   ================================================================ */
+.hero {
+    padding: var(--s8, 72px) 0 var(--s9, 112px);
+    background-color: var(--paper, #F2EFE8);
+    color: var(--ink, #16140F);
+    width: 100%;
+}
+
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Perfect 50/50 balance */
+    gap: var(--s7, 48px);
+    align-items: center;
+    width: 100%;
+}
+
+.hero-copy {
+    text-align: left;
+    margin: 0;
+    padding: 0;
+}
+
+.hero-copy .kicker {
+    font-family: var(--mono, monospace);
+    font-size: 0.875rem;
+    color: var(--ink-2, #4A463F);
+    margin: 0 0 var(--s4, 16px);
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+}
+
+.hero-copy h1 {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    font-weight: 800;
+    margin: 0 0 var(--s5, 24px);
+    color: var(--ink, #16140F);
+}
+
+.hero-copy .lede {
+    font-size: 1.1875rem;
+    line-height: 1.6;
+    max-width: 36ch;
+    margin: 0 0 var(--s6, 32px);
+    color: var(--ink-2, #4A463F);
+}
+
+.hero-copy .cta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--s3, 12px);
+}
+
+/* Primary Button Styling Security */
+.hero-copy .btn-primary,
+.topbar .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    padding: var(--s2, 8px) var(--s5, 24px);
+    background-color: var(--ink, #16140F) !important;
+    color: var(--surface, #FBF9F4) !important;
+    border: 1px solid var(--ink, #16140F) !important;
+    border-radius: var(--border-radius, 2px);
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.2s ease;
+}
+
+.hero-copy .btn-primary:hover,
+.topbar .btn-primary:hover {
+    background-color: var(--accent, #8C2A0B) !important;
+    border-color: var(--accent, #8C2A0B) !important;
+}
+
+/* Hero Plate & Graphic Sizing Architecture */
+.hero-plate {
+    margin: 0;
+    width: 100%;
+}
+
+.plate {
+    position: relative;
+    background-color: var(--plate-bg, #E6E1D6);
+    border: 1px solid var(--rule-strong, #8E877A);
+    aspect-ratio: 2/1; /* Keeps image frame perfectly proportioned */
+    overflow: hidden;
+    border-radius: var(--border-radius, 2px);
+    width: 100%;
+}
+
+.plate img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+.hero-plate figcaption {
+    font-family: var(--mono, monospace);
+    font-size: 0.8125rem;
+    color: var(--ink-2, #4A463F);
+    margin-top: var(--s2, 8px);
+    text-align: right;
+}
+
+/* =================================================================
+   SOLUTIONS & CARDS SECTION SPACING
+   ================================================================ */
+.band {
+    padding: var(--s8, 72px) 0 var(--s9, 112px);
+    border-top: 1px solid var(--rule, #CFC9BD);
+    background-color: var(--surface, #FBF9F4);
+}
+
+.gateway-header {
+    margin-bottom: var(--s6, 32px);
+}
+
+.gateway-header .label {
+    font-family: var(--mono, monospace);
+    font-size: 0.875rem;
+    color: var(--ink-2, #4A463F);
+    margin-bottom: var(--s3, 12px);
+    letter-spacing: .02em;
+}
+
+.gateway-header h2 {
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    line-height: 1.1;
+    font-weight: 800;
+    margin: 0 0 var(--s4, 16px);
+    color: var(--ink, #16140F);
+}
+
+.gateway-header .intro {
+    font-size: 1.125rem;
+    color: var(--ink-2, #4A463F);
+    margin: 0;
+}
+
+/* Cards Grid Layout */
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--s5, 24px);
+    align-items: stretch;
+}
+
+.dataset-card {
+    background-color: var(--paper, #F2EFE8);
+    border: 1px solid var(--rule-strong, #8E877A);
+    border-radius: var(--border-radius, 2px);
+    padding: var(--s5, 24px);
+    display: flex;
+    flex-direction: column;
+    gap: var(--s3, 12px);
+}
+
+.dataset-card h2 {
+    font-size: 1.25rem;
+    color: var(--ink, #16140F);
+    margin: 0;
+}
+
+.dataset-card p {
+    color: var(--ink-2, #4A463F);
+    font-size: 0.95rem;
+    margin: 0;
+    flex-grow: 1;
+}
+
+.explore-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    background-color: var(--accent-primary, #16140F);
+    color: var(--surface, #FBF9F4);
+    font-weight: 600;
+    text-decoration: none;
+    padding: var(--s2, 8px) var(--s5, 24px);
+    border-radius: var(--border-radius, 2px);
     text-align: center;
-    margin-top: var(--s2);
-    font-size: 0.75rem;
-    font-style: italic;
-    color: var(--ink-2);
+    transition: background-color 0.2s ease;
+    margin-top: var(--s3, 12px);
+}
+
+.explore-btn:hover {
+    background-color: var(--accent-hover, #8C2A0B);
+}
+
+/* =================================================================
+   RESPONSIVE MEDIA QUERIES (Tablets & Mobiles)
+   ================================================================ */
+@media screen and (max-width: 960px) {
+    .hero-grid {
+        grid-template-columns: 1fr;
+        gap: var(--s6, 32px);
+    }
+    
+    .cards-grid {
+        grid-template-columns: 1fr;
+    }
 }

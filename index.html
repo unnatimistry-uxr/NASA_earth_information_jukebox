@@ -11,31 +11,75 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
 </head>
-<body class="gateway-body">
+<body>
 
-    <main class="gateway-container" role="main">
-        <header class="gateway-header">
-            <h1>NASA Earth Information Jukebox</h1>
-            <p>An interactive, multi-modal audio-visual exploration system designed for universal accessibility. Experience satellite observations through dual-channel spatial audio sonification and keyboard-driven navigation.</p>
-        </header>
+    <!-- Top Header Bar -->
+    <header class="topbar">
+        <div class="wrap topbar-inner">
+            <a class="wordmark" href="#top" aria-label="Earth Information Jukebox, home">Earth Information Jukebox</a>
+            <nav aria-label="Page sections">
+                <ul class="navlist" role="list">
+                    <li><a href="#problem">The problem</a></li>
+                    <li><a href="#how">How it works</a></li>
+                    <li><a href="#solutions">The solution</a></li>
+                </ul>
+            </nav>
+            <a class="btn btn-primary btn-sm" href="ocean-stress.html">Try it</a>
+        </div>
+    </header>
 
-        <section aria-label="Available Visualizations">
-            <div class="dataset-card">
-                <h2>Global Ocean Nutrient Stress (2002–2021)</h2>
-                <p>Explore two decades of NASA satellite data mapping how warming ocean waters restrict upwelling and impact marine microorganisms.</p>
-                <a href="ocean-stress.html" class="explore-btn" role="button">Explore Ocean Nutrient Stress</a>
-            </div>
-            <div class="dataset-card">
-                <h2>Global Carbon Monoxide (CO) Air Quality</h2>
-                <p>Near-surface carbon monoxide concentrations estimated by NASA's GEOS-CF model, highlighting industrial emissions and wildfire zones across continents.</p>
-                <a href="air-quality-co.html" class="explore-btn" role="button">Explore Air Quality (CO)</a>
-            </div>
-            <div class="dataset-card">
-                <h2>Wildland Fires: Global View (Dec 2024)</h2>
-                <p>Climate change continues to cause longer fire seasons and more severe wildfires. Worldview active fires from VIIRS highlight global thermal anomalies and fire activity across continents.</p>
-                <a href="fires-viirs.html" class="explore-btn" role="button">Explore VIIRS Active Fires</a>
+    <!-- Main Content Wrapper -->
+    <main id="main">
+
+        <!-- Hero Section -->
+        <section class="hero" id="top" aria-labelledby="hero-h">
+            <div class="wrap hero-grid">
+                <div class="hero-copy">
+                    <p class="kicker">NASA Space Apps · Earth Information Center challenge</p>
+                    <h1 id="hero-h">Hear the planet change.</h1>
+                    <p class="lede">NASA tells the story of our changing Earth through maps and images. The Jukebox turns those images into sound, so people who are blind or have low vision can explore the same science by ear and keyboard.</p>
+                    <div class="cta-row">
+                        <a class="btn btn-primary" href="ocean-stress.html">Try the Jukebox</a>
+                    </div>
+                </div>
+                <figure class="hero-plate">
+                    <div class="plate">
+                        <img src="assets/images/AQI_CO.jpg" alt="NASA map of carbon monoxide near the surface on 15 August 2023. The heaviest pollution, in dark red, sits over central Africa, China and India; most ocean is pale yellow." width="960" height="480">
+                    </div>
+                    <figcaption class="mono">Carbon monoxide, 15 Aug 2023 · NASA GEOS-CF</figcaption>
+                </figure>
             </div>
         </section>
+
+        <!-- Visualizations / Cards Section -->
+        <section class="band" id="solutions" aria-labelledby="sol-h">
+            <div class="wrap">
+                <div class="gateway-header">
+                    <p class="label">03 · The solution</p>
+                    <h2 id="sol-h">Three NASA images, ready to hear.</h2>
+                    <p class="intro">Each one is a real NASA visualization converted into sound. Pick one to explore.</p>
+                </div>
+
+                <div class="cards-grid" role="list">
+                    <div class="dataset-card">
+                        <h2>Global Ocean Nutrient Stress</h2>
+                        <p>Explore two decades of NASA satellite data mapping how warming ocean waters restrict upwelling and impact marine microorganisms.</p>
+                        <a href="ocean-stress.html" class="explore-btn" role="button">Explore Ocean Nutrient Stress</a>
+                    </div>
+                    <div class="dataset-card">
+                        <h2>Global Carbon Monoxide (CO) Air Quality</h2>
+                        <p>Near-surface carbon monoxide concentrations estimated by NASA's GEOS-CF model, highlighting industrial emissions and wildfire zones across continents.</p>
+                        <a href="air-quality-co.html" class="explore-btn" role="button">Explore Air Quality (CO)</a>
+                    </div>
+                    <div class="dataset-card">
+                        <h2>Wildland Fires: Global View (Dec 2024)</h2>
+                        <p>Climate change continues to cause longer fire seasons and more severe wildfires. Worldview active fires from VIIRS highlight global thermal anomalies.</p>
+                        <a href="fires-viirs.html" class="explore-btn" role="button">Explore VIIRS Active Fires</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
     </main>
 
 </body>
