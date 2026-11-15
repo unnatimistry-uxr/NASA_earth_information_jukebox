@@ -33,132 +33,158 @@
 
         <!-- Hero Section -->
         <section class="hero" id="top" aria-labelledby="hero-h">
-            <div class="wrap hero-grid">
-                <div class="hero-copy">
-                    <p class="kicker">NASA Space Apps · Earth Information Center challenge</p>
-                    <h1 id="hero-h">Hear the planet change.</h1>
-                    <p class="lede">NASA tells the story of our changing Earth through maps and images. The Jukebox turns those images into sound, so people who are blind or have low vision can explore the same science by ear and keyboard.</p>
-                    <div class="cta-row">
-                        <a class="btn btn-primary" href="ocean-stress.html">Try the Jukebox</a>
+            <div class="wrap">
+                <div class="hero-grid">
+                    <div class="hero-copy">
+                        <p class="kicker">NASA Space Apps · Earth Information Center challenge</p>
+                        <h1 id="hero-h">Hear the planet change.</h1>
+                        <p class="lede">NASA tells the story of our changing Earth through maps and images. The Jukebox turns those images into sound, so people who are blind or have low vision can explore the same science by ear and keyboard.</p>
+                        <div class="cta-row">
+                            <a class="btn btn-primary" href="ocean-stress.html">Try the Jukebox</a>
+                        </div>
                     </div>
+                    <figure class="hero-plate">
+                        <div class="plate">
+                            <img src="assets/images/AQI_CO.jpg" alt="NASA map of carbon monoxide near the surface on 15 August 2023." width="960" height="480">
+                        </div>
+                        <figcaption class="mono">Carbon monoxide, 15 Aug 2023 · NASA GEOS-CF</figcaption>
+                    </figure>
                 </div>
-                <figure class="hero-plate">
-                    <div class="plate">
-                        <img src="assets/images/AQI_CO.jpg" alt="NASA map of carbon monoxide near the surface on 15 August 2023. The heaviest pollution, in dark red, sits over central Africa, China and India; most ocean is pale yellow." width="960" height="480">
-                    </div>
-                    <figcaption class="mono">Carbon monoxide, 15 Aug 2023 · NASA GEOS-CF</figcaption>
-                </figure>
             </div>
         </section>
 
-
-
-        <!-- Problem -->
-
+        <!-- Problem Section -->
         <section class="band" id="problem" aria-labelledby="problem-h">
             <div class="wrap">
-            <p class="label">01 · The problem</p>
-            <h2 id="problem-h">Earth science is told in pictures.</h2>
-            <div class="two-col">
-                <p>Climate, air quality, wildfire and ocean health reach the public mostly as colour maps and satellite images. A colour scale means nothing to a screen reader, and alt text can summarise a map but cannot let someone explore it: where pollution peaks, how far it spreads, what is happening over their own region.</p>
-                <p>That shuts out students, researchers and citizens who are blind or have low vision from evidence that shapes decisions about their health and their communities.</p>
-            </div>
+                <p class="label">01 · The problem</p>
+                <h2 id="problem-h">Earth science is told in pictures.</h2>
+                <div class="two-col">
+                    <p>Climate, air quality, wildfire and ocean health reach the public mostly as colour maps and satellite images. A colour scale means nothing to a screen reader, and alt text can summarise a map but cannot let someone explore it: where pollution peaks, how far it spreads, what is happening over their own region.</p>
+                    <p>That shuts out students, researchers and citizens who are blind or have low vision from evidence that shapes decisions about their health and their communities.</p>
+                </div>
 
-            <h3 class="sub-h">Who is affected</h3>
-            <ul class="stats" role="list">
-                <li class="stat">
-                <b class="mono">2.2&nbsp;billion</b>
-                <span>people live with a near or distance vision impairment.</span>
-                </li>
-                <li class="stat">
-                <b class="mono">295&nbsp;million</b>
-                <span>people have moderate or severe distance vision impairment.</span>
-                </li>
-                <li class="stat">
-                <b class="mono">43&nbsp;million</b>
-                <span>people are blind, a number projected to reach about 60 million by 2050.</span>
-                </li>
-            </ul>
+                <h3 class="sub-h">Who is affected</h3>
+                <ul class="stats" role="list">
+                    <li class="stat">
+                        <b class="mono">2.2&nbsp;billion</b>
+                        <span>people live with a near or distance vision impairment.</span>
+                    </li>
+                    <li class="stat">
+                        <b class="mono">295&nbsp;million</b>
+                        <span>people have moderate or severe distance vision impairment.</span>
+                    </li>
+                    <li class="stat">
+                        <b class="mono">43&nbsp;million</b>
+                        <span>people are blind, a number projected to reach about 60 million by 2050.</span>
+                    </li>
+                </ul>
             </div>
         </section>
 
-
-
-        <!-- How It Works -->
+        <!-- How It Works Section -->
         <section class="band band-alt" id="how" aria-labelledby="how-h">
             <div class="wrap">
-            <p class="label">02 · How it works</p>
-            <h2 id="how-h">From pixels to pitch in four steps.</h2>
-            <ol class="steps">
-                <li>
-                <span class="step-n mono" aria-hidden="true">1</span>
-                <h3>Start with a NASA image</h3>
-                <p>Each dataset is a published NASA visualization with its colour scale, such as GEOS-CF carbon monoxide or VIIRS active fires.</p>
-                </li>
-                <li>
-                <span class="step-n mono" aria-hidden="true">2</span>
-                <h3>Choose a region</h3>
-                <p>Move between continents, oceans or a map grid with the arrow keys or buttons. Every move is announced to your screen reader.</p>
-                </li>
-                <li>
-                <span class="step-n mono" aria-hidden="true">3</span>
-                <h3>Listen to the data</h3>
-                <p>Press Space and the Jukebox sweeps the region west to east. Colour becomes pitch: low values play low notes, high values rise.</p>
-                </li>
-                <li>
-                <span class="step-n mono" aria-hidden="true">4</span>
-                <h3>Learn the scale by ear</h3>
-                <p>Before exploring, play the audio legend: the full colour scale as one rising sweep, with values and units available to your screen reader.</p>
-                </li>
-            </ol>
-            <p class="keys"><span class="label">Keys</span> <kbd>←</kbd> <kbd>→</kbd> <kbd>↑</kbd> <kbd>↓</kbd> move · <kbd>Space</kbd> play region · <kbd>M</kbd> mute · <kbd>Home</kbd> start · <kbd>End</kbd> leave the map</p>
+                <p class="label">02 · How it works</p>
+                <h2 id="how-h">From pixels to pitch in four steps.</h2>
+                <ol class="steps">
+                    <li>
+                        <span class="step-n mono" aria-hidden="true">1</span>
+                        <h3>Start with a NASA image</h3>
+                        <p>Each dataset is a published NASA visualization with its colour scale, such as GEOS-CF carbon monoxide or VIIRS active fires.</p>
+                    </li>
+                    <li>
+                        <span class="step-n mono" aria-hidden="true">2</span>
+                        <h3>Choose a region</h3>
+                        <p>Move between continents, oceans or a map grid with the arrow keys or buttons. Every move is announced to your screen reader.</p>
+                    </li>
+                    <li>
+                        <span class="step-n mono" aria-hidden="true">3</span>
+                        <h3>Listen to the data</h3>
+                        <p>Press Space and the Jukebox sweeps the region west to east. Colour becomes pitch: low values play low notes, high values rise.</p>
+                    </li>
+                    <li>
+                        <span class="step-n mono" aria-hidden="true">4</span>
+                        <h3>Learn the scale by ear</h3>
+                        <p>Before exploring, play the audio legend: the full colour scale as one rising sweep, with values and units available to your screen reader.</p>
+                    </li>
+                </ol>
+                <p class="keys"><span class="label">Keys</span> <kbd>←</kbd> <kbd>→</kbd> <kbd>↑</kbd> <kbd>↓</kbd> move · <kbd>Space</kbd> play region · <kbd>M</kbd> mute · <kbd>Home</kbd> start · <kbd>End</kbd> leave the map</p>
             </div>
         </section>
 
-
-
-
-        <!-- Solution Visualizations / Cards Section -->
+        <!-- Solutions / Cards Section -->
         <section class="band" id="solutions" aria-labelledby="sol-h">
             <div class="wrap">
-                <div class="gateway-header">
-                    <p class="label">03 · The solution</p>
-                    <h2 id="sol-h">Three NASA images, ready to hear.</h2>
-                    <p class="intro">Each one is a real NASA visualization converted into sound. Pick one to explore.</p>
-                </div>
+                <p class="label">03 · The solution</p>
+                <h2 id="sol-h">Three NASA images, ready to hear.</h2>
+                <p class="intro">Each one is a real NASA visualization converted into sound. Pick one to explore.</p>
 
-                <div class="cards-grid" role="list">
-                    <div class="dataset-card">
-                        <h2>Global Ocean Nutrient Stress</h2>
-                        <p>Explore two decades of NASA satellite data mapping how warming ocean waters restrict upwelling and impact marine microorganisms.</p>
-                        <a href="ocean-stress.html" class="explore-btn" role="button">Explore Ocean Nutrient Stress</a>
-                    </div>
-                    <div class="dataset-card">
-                        <h2>Global Carbon Monoxide (CO) Air Quality</h2>
-                        <p>Near-surface carbon monoxide concentrations estimated by NASA's GEOS-CF model, highlighting industrial emissions and wildfire zones across continents.</p>
-                        <a href="air-quality-co.html" class="explore-btn" role="button">Explore Air Quality (CO)</a>
-                    </div>
-                    <div class="dataset-card">
-                        <h2>Wildland Fires: Global View (Dec 2024)</h2>
-                        <p>Climate change continues to cause longer fire seasons and more severe wildfires. Worldview active fires from VIIRS highlight global thermal anomalies.</p>
-                        <a href="fires-viirs.html" class="explore-btn" role="button">Explore VIIRS Active Fires</a>
-                    </div>
-                </div>
+                <ul class="cards" role="list">
+                    <li class="card">
+                        <div class="plate">
+                            <img src="assets/images/nutrient_stress_map.jpg" alt="World ocean map, centred on the Pacific." width="960" height="315" loading="lazy">
+                        </div>
+                        <div class="card-body">
+                            <p class="meta mono">2002–2021 · NASA satellites and ocean surveys</p>
+                            <h3>Ocean nutrient stress</h3>
+                            <p>Two decades of data showing where warming water limits the nutrients that feed marine life.</p>
+                            <dl class="hear">
+                                <dt>You hear</dt><dd>Low notes for cool, nutrient-rich water; high notes for warm, stressed water.</dd>
+                                <dt>Explore by</dt><dd>Ocean basin: Pacific, Atlantic, Indian, Southern, Arctic</dd>
+                            </dl>
+                            <div class="card-actions">
+                                <a class="btn btn-primary" href="ocean-stress.html">Explore ocean stress</a>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="card">
+                        <div class="plate">
+                            <img src="assets/images/AQI_CO.jpg" alt="World map of near-surface carbon monoxide." width="960" height="480" loading="lazy">
+                        </div>
+                        <div class="card-body">
+                            <p class="meta mono">15 Aug 2023 · NASA GMAO GEOS-CF model</p>
+                            <h3>Carbon monoxide air quality</h3>
+                            <p>Pollution from traffic, industry and wildfires, and how far it drifts across continents.</p>
+                            <dl class="hear">
+                                <dt>You hear</dt><dd>40 parts per billion as a low note, up to 500 as a high note.</dd>
+                                <dt>Explore by</dt><dd>Continent: seven regions from North America to Antarctica</dd>
+                            </dl>
+                            <div class="card-actions">
+                                <a class="btn btn-primary" href="air-quality-co.html">Explore air quality</a>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="card">
+                        <div class="plate">
+                            <img src="assets/images/Worldview_VIIRSFires.png" alt="NASA Worldview satellite image of Earth." width="960" height="469" loading="lazy">
+                        </div>
+                        <div class="card-body">
+                            <p class="meta mono">3 Dec 2024 · VIIRS via NASA Worldview</p>
+                            <h3>Active wildland fires</h3>
+                            <p>A single day of fire detections from space, from agricultural burning to wildfires.</p>
+                            <dl class="hear">
+                                <dt>You hear</dt><dd>Pitch rises as fire detections grow denser.</dd>
+                                <dt>Explore by</dt><dd>Map grid: eight zones, four across and two down</dd>
+                            </dl>
+                            <div class="card-actions">
+                                <a class="btn btn-primary" href="fires-viirs.html">Explore fires</a>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
             </div>
         </section>
 
-        <!-- CTA -->
+        <!-- CTA Section -->
         <section class="band band-ink" aria-labelledby="cta-h">
             <div class="wrap cta-band">
-            <h2 id="cta-h">Put on headphones and start listening.</h2>
-            <p>Works with a keyboard and a screen reader. No mouse or sight needed.</p>
-            <a class="btn btn-invert" href="ocean-stress.html">Try the Jukebox</a>
+                <h2 id="cta-h">Put on headphones and start listening.</h2>
+                <p>Works with a keyboard and a screen reader. No mouse or sight needed.</p>
+                <a class="btn btn-invert" href="ocean-stress.html">Try the Jukebox</a>
             </div>
         </section>
-
-
-        
-        
 
     </main>
 
@@ -166,7 +192,7 @@
     <footer class="footer">
         <div class="wrap footer-inner">
             <p>Built for the NASA Space Apps “Earth Information Jukebox” challenge.</p>
-            <p>Data: NASA Scientific Visualization Studio, NASA GMAO GEOS-CF, NASA Worldview (VIIRS). Images are NASA’s; sound mappings are ours.</p>
+            <p>Data: NASA Scientific Visualization Studio, NASA GMAO GEOS-CF, NASA Worldview (VIIRS).</p>
         </div>
     </footer>
 
