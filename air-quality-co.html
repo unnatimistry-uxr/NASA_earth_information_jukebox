@@ -15,19 +15,48 @@
     <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Header Landmark -->
-    <header role="banner">
-        <h1>Earth Information Jukebox</h1>
-        <p>Accessible Multi-Sensory Data Exploration for BLV Researchers</p>
+    <a class="skip-link" href="#mapCanvas">Skip to map</a>
+
+    <!-- Site navigation (same on every dataset page) -->
+    <header class="topbar">
+        <div class="topbar-inner">
+            <a class="wordmark" href="index.html">Earth Information Jukebox</a>
+            <nav aria-label="Site">
+                <ul class="navlist" role="list">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="ocean-stress.html" >Ocean nutrient stress</a></li>
+                    <li><a href="air-quality-co.html" aria-current="page">AQI Carbon monoxide</a></li>
+                    <li><a href="fires-viirs.html">Active fires</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
     <!-- Main Content Landmark -->
     <main role="main" class="main-container">
         
-        <!-- Executive Summary Container -->
-        <div id="datasetSummary" class="status-region" aria-live="polite">
-            Loading dataset executive summary...
-        </div>
+        <!-- Executive Summary Container (Populated dynamically from JSON metadata) -->
+        <section id="datasetSummary" class="dataset-hero-banner" aria-live="polite">
+            <h1 class="dataset-title">Loading dataset overview...</h1>
+            <p class="dataset-desc">Please wait while dataset metadata is retrieved.</p>
+        </section>
+
+        <!-- Map orientation: read before exploring -->
+        <section class="map-orientation" aria-labelledby="orientation-heading">
+            <h2 id="orientation-heading">How this map is organised</h2>
+            <p>This map is divided into 7 continent regions. You move through them in this order:</p>
+            <ol>
+                <li>North America</li>
+                <li>South America</li>
+                <li>Europe</li>
+                <li>Asia</li>
+                <li>Africa</li>
+                <li>Australia</li>
+                <li>Antarctica</li>
+            </ol>
+            <p>Left or Up arrow goes to the previous continent; Right or Down arrow goes to the next. Space or Enter plays the selected continent from left to right across the map. Home returns to the North America.</p>
+        </section>
+
 
         <!-- Dynamic Audio Legend Container -->
         <div class="dynamic-legend-section"></div>
@@ -79,16 +108,6 @@
                     </button>
                 </fieldset>
 
-                <!-- Gateway Navigation Link -->
-                <div class="gateway-link-container">
-                    <a href="index.html" class="control-btn" role="button">Back to Home Gateway</a>
-                </div>
-                <div class="gateway-link-container">
-                    <a href="ocean-stress.html" class="control-btn" role="button">Ocean Navigation</a>
-                </div>
-                <div class="gateway-link-container">
-                    <a href="fires-viirs.html" class="control-btn" role="button">Grid Navigation</a>
-                </div>
             </aside>
 
         </div>

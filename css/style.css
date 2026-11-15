@@ -267,7 +267,8 @@ header p {
 .audio-legend-wrapper {
     margin-bottom: var(--s5);
     background: var(--surface);
-    border: 1px solid var(--rule-strong);
+    /* border: 1px solid var(--rule-strong); */
+    border-left: 4px solid var(--accent, #8C2A0B);
     padding: var(--s5);
     border-radius: var(--border-radius);
     text-align: left;
@@ -367,7 +368,8 @@ canvas:focus {
     border-radius: var(--border-radius-sm);
     text-align: left;
     border: 1px solid var(--rule-strong);
-    border-left: 4px solid var(--ink);            /* Bold left indicator for live readout */
+    /* border-left: 4px solid var(--ink);   */         
+    border-left: 4px solid var(--accent, #8C2A0B); /* Bold left indicator for live readout */
 }
 
 /* ==========================================================================
@@ -1237,4 +1239,167 @@ kbd {
     left: calc(100% - 2px);
     opacity: 0;
   }
+}
+
+
+/* ==========================================================================
+   DATASET PAGE NAVIGATION — site nav moved out of the controls panel
+   ========================================================================== */
+/* Width bug: padding/border were added on top of width:100% (sideways scroll) */
+.topbar,
+.topbar-inner,
+.wrap,
+.map-container { box-sizing: border-box; }
+
+/* Let the dataset links wrap instead of overflowing on narrow screens */
+.topbar .navlist { flex-wrap: wrap; row-gap: 0.25rem; }
+.topbar .navlist a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;                 /* comfortable touch target */
+    border-bottom: 2px solid transparent;
+}
+
+/* Current page: shown by weight and underline, not colour alone */
+.topbar .navlist a[aria-current="page"] {
+    opacity: 1;
+    font-weight: 700;
+    border-bottom-color: var(--ink, #16140F);
+}
+
+/* Skip link: hidden until focused, then the first thing on screen */
+.skip-link {
+    position: absolute;
+    left: 1rem;
+    top: 1rem;
+    z-index: 2000;
+    transform: translateY(-200%);
+    background: var(--ink, #16140F);
+    color: var(--surface, #FBF9F4);
+    padding: 0.5rem 1rem;
+    font-weight: 700;
+    text-decoration: none;
+}
+.skip-link:focus { transform: none; }
+
+/* Page heading for each dataset */
+.page-head { text-align: left; margin: var(--s6, 32px) 0 var(--s5, 24px); }
+.page-head h1 {
+    margin: 0 0 var(--s2, 8px);
+    color: var(--ink, #16140F);
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+}
+.page-head p {
+    margin: 0;
+    color: var(--ink-2, #4A463F);
+    font-family: "Atkinson Hyperlegible Mono", monospace;
+    font-size: 0.9rem;
+}
+
+/* "Next dataset" text link at the end of each page */
+.next-dataset {
+    margin: var(--s7, 48px) 0 var(--s6, 32px);
+    padding-top: var(--s4, 16px);
+    border-top: 1px solid var(--rule, #CFC9BD);
+    font-weight: 700;
+}
+.next-dataset a {
+    color: var(--ink, #16140F);
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    text-underline-offset: 3px;
+}
+
+/* Keep dataset-page content off the screen edges on phones */
+.main-container {
+    box-sizing: border-box;
+    padding-left: var(--s4, 16px);
+    padding-right: var(--s4, 16px);
+}
+
+
+
+/* ==========================================================================
+   MAP ORIENTATION — how the map is divided, read before exploring
+   ========================================================================== */
+.map-orientation {
+    margin-bottom: var(--s5);
+    background: var(--surface);
+    /* border: 1px solid var(--rule-strong);  */
+    border-left: 4px solid var(--accent, #8C2A0B);
+    padding: var(--s5);
+    border-radius: var(--border-radius);
+    text-align: left;
+}
+
+.map-orientation h2 {
+    color: var(--ink);
+    margin: 0 0 var(--s2);
+    font-size: var(--font-size-heading);
+    font-weight: 800;
+}
+
+.map-orientation p {
+    margin: 0 0 var(--s3);
+    color: var(--ink);
+    max-width: 75ch;
+}
+
+.map-orientation p:last-child {
+    margin-bottom: 0;
+    color: var(--ink-2);
+}
+
+.map-orientation ol {
+    margin: 0 0 var(--s3);
+    padding-left: 1.5em;
+}
+
+.map-orientation li {
+    margin-bottom: var(--s1);
+}
+
+
+
+
+
+/* ==========================================================================
+   ISOLATED DATASET HERO BANNER (WCAG & Design System Aligned)
+   ========================================================================== */
+.dataset-hero-banner {
+    background-color: var(--surface);
+    /* border: 1px solid var(--rule-strong); */
+    border-left: 4px solid var(--accent, #8C2A0B);
+    padding: var(--s5, 24px);
+    margin-top: var(--s7, 48px);
+    margin-bottom: var(--s5, 24px);
+    border-radius: var(--border-radius, 2px);
+    text-align: left;
+}
+
+.dataset-hero-banner .dataset-title {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 800;
+    color: var(--ink);
+    margin: 0 0 var(--s3, 12px);
+    letter-spacing: -0.02em;
+}
+
+.dataset-hero-banner .dataset-desc {
+    font-size: 1.0625rem;
+    color: var(--ink-2);
+    margin: 0 0 var(--s3, 12px);
+    line-height: 1.6;
+    max-width: 65ch;
+}
+
+.dataset-hero-banner .dataset-source {
+    font-family: var(--mono, monospace);
+    font-size: 0.8125rem;
+    color: var(--ink-2);
+    margin: 0;
+    opacity: 0.85;
 }

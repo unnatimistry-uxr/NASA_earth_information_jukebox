@@ -24,6 +24,18 @@ async function initOceanEngine() {
             return;
         }
 
+        // Dynamically populate the accessible dataset banner from JSON metadata if available
+        if (dataset.metadata) {
+            const summaryContainer = document.getElementById("datasetSummary");
+            if (summaryContainer) {
+                summaryContainer.innerHTML = `
+                    <h1 id="datasetTitle" class="dataset-title">${dataset.metadata.title}</h1>
+                    <p class="dataset-desc">${dataset.metadata.description}</p>
+                    <p class="dataset-source mono">Source: ${dataset.metadata.source}</p>
+                `;
+            }
+        }
+
         const canvas = document.getElementById("mapCanvas");
         const ctx = canvas.getContext("2d", { willReadFrequently: true });
         const statusRegion = document.getElementById("statusRegion");
