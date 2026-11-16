@@ -1211,6 +1211,12 @@ kbd {
   object-fit: cover;
 }
 
+#hero-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: fill !important;
+}
+
 .sweep {
   position: absolute;
   top: 0;
@@ -1402,4 +1408,14 @@ kbd {
     color: var(--ink-2);
     margin: 0;
     opacity: 0.85;
+}
+
+
+
+/* ==========================================================================
+   SAFE UX HIGHLIGHT UTILITY
+   ========================================================================== */
+.highlight-term {
+    color: var(--accent, #8C2A0B);
+    font-weight: 500; 
 }
